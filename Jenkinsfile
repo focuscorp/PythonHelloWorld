@@ -49,7 +49,9 @@ pipeline {
                        sh 'cf --help'
                        //sh 'cf login -a https://api.cf.us10.hana.ondemand.com/ -u mohtadi.nasri@focus-corporation.com -p 93407130Nm2021'
                        sh 'cf login -a https://api.cf.us10.hana.ondemand.com/ -u nadim.mabrouk@focus-corporation.com -p NADmab13446526='
-                       sh 'cf create-route cfapps.us10.hana.ondemand.com --hostname my_app_django_a'
+
+
+                       sh 'cf create-route api.cf.us10.hana.ondemand.com --hostname my_app_django_a'
                        sh 'cf push my_app_django_a -b https://github.com/heroku/heroku-buildpack-python.git'
 
                     }
