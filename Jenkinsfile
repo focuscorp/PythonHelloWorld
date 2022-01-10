@@ -8,6 +8,7 @@ pipeline {
               }
           }
           steps {
+               sh 'echo "hello world"'
                //sh 'python -m py_compile sources/*.py'
                //stash(name: 'app-content', includes: 'app/*')
                //stash(name: 'setUpPy', includes: 'setup.py*')
@@ -53,11 +54,7 @@ pipeline {
 
                     }
                }
-               post {
-                   success {
-                        archiveArtifacts "${env.BUILD_ID}/dist/*"
-                   }
-               }
+
         }
     }
 }
