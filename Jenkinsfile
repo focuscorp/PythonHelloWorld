@@ -10,7 +10,7 @@ pipeline {
           steps {
                sh 'echo "hello world"'
                //sh 'python -m py_compile sources/*.py'
-               //stash(name: 'app-content', includes: 'app/*')
+               stash(name: 'app-content', includes: '*')
                //stash(name: 'setUpPy', includes: 'setup.py*')
                //stash(name: 'pypirc', includes: '.pypirc')
                //stash(name: 'procfile', includes: 'Procfile')
@@ -27,7 +27,7 @@ pipeline {
                }
                steps {
                    dir(path: env.BUILD_ID) {
-                       //unstash(name: 'app-content')
+                       unstash(name: 'app-content')
                        //unstash(name: 'setUpPy')
                        //unstash(name: 'pypirc')
                        //unstash(name: 'procfile')
@@ -49,8 +49,8 @@ pipeline {
                        sh 'cf --help'
                        //sh 'cf login -a https://api.cf.us10.hana.ondemand.com/ -u mohtadi.nasri@focus-corporation.com -p 93407130Nm2021'
                        sh 'cf login -a https://api.cf.us10.hana.ondemand.com/ -u nadim.mabrouk@focus-corporation.com -p NADmab13446526='
-                       sh 'cf create-route cfapps.us10.hana.ondemand.com --hostname my_app_django_'
-                       sh 'cf push my_app_django_  -b https://github.com/cloudfoundry/python-buildpack.git'
+                       //sh 'cf create-route cfapps.us10.hana.ondemand.com --hostname my_app_django_'
+                       sh 'cf push'
 
                     }
                }
