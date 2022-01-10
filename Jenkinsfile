@@ -11,7 +11,7 @@ pipeline {
                //sh 'python -m py_compile sources/*.py'
                stash(name: 'app-content', includes: 'app/*')
                //stash(name: 'setUpPy', includes: 'setup.py*')
-               stash(name: 'pypirc', includes: '.pypirc')
+               //stash(name: 'pypirc', includes: '.pypirc')
                stash(name: 'procfile', includes: 'Procfile')
                //stash(name: 'managePy', includes: 'manage.py')
           }
@@ -28,7 +28,7 @@ pipeline {
                    dir(path: env.BUILD_ID) {
                        unstash(name: 'app-content')
                        //unstash(name: 'setUpPy')
-                       unstash(name: 'pypirc')
+                       //unstash(name: 'pypirc')
                        unstash(name: 'procfile')
                        //unstash(name: 'managePy')
                        //https://docs.python.org/3/distutils/builtdist.html
