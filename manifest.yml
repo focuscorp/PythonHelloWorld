@@ -1,2 +1,5 @@
 applications:
-- name: MyFirstPython
+- name: my_app_django_aa
+  random-route: true
+  stack: cflinuxfs3
+  buildpack: python_buildpack
