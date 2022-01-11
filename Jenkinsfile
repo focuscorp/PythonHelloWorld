@@ -11,7 +11,7 @@ pipeline {
                sh 'echo "hello world"'
                //sh 'python -m py_compile sources/*.py'
                stash(name: 'app-content', includes: '*')
-               stash(name: 'app-content_', includes: 'app/*')
+               stash(name: 'app-content_', includes: 'app/**')
                //stash(name: 'setUpPy', includes: 'setup.py*')
                //stash(name: 'pypirc', includes: '.pypirc')
                //stash(name: 'procfile', includes: 'Procfile')
